@@ -10,7 +10,10 @@ const app = express();
 
 dotenv.config();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://flipkart-client-ebon.vercel.app/', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+  }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded())
 app.use('/', Router);
